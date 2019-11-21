@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="PCTCompile-test80">
+  <taskdef resource="PCT.properties" />
+
+  <target name="init">
+    <mkdir dir="db" />
+    <sports2000 destDir="db" dbName="sp2k1" />
+    <sports2000 destDir="db" dbName="sp2k2" />
+    <PCTLoadSchema srcFile="delta.df" dlcHome="${DLC}">
+      <DBConnection dbDir="db" dbName="sp2k2" singleUser="true" />
+    </PCTLoadSchema>
+  </target>
+
+  <target name="test1">
+    <mkdir dir="build1" />
+    <PCTCompile graphicalMode="false" destDir="build1" dlcHome="${DLC}">
+      <fileset dir="src" includes="**/*.cls" />
+      <propath location="src" />
+      <DBConnection dbDir="db" dbName="sp2k1" singleUser="true" />
+    </PCTCompile>
+  </target>
+
+  <target name="test2">
+    <mkdir dir="build2" />
+    <PCTCompile graphicalMode="false" destDir="build2" dlcHome="${DLC}">
+      <fileset dir="src" includes="**/*.cls" />
+      <propath location="src" />
+      <DBConnection dbDir="db" dbName="sp2k2" singleUser="true" />
+    </PCTCompile>
+  </target>
+
+</project>
