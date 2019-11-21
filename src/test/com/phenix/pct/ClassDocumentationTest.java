@@ -138,4 +138,15 @@ public class ClassDocumentationTest extends BuildFileTestNg {
         assertEquals(nodeList.getLength(), 1);
     }
 
+    @Test(groups= {"win", "v11"})
+    public void test7() {
+        configureProject("ClassDocumentation/test7/build.xml");
+        executeTarget("test");
+
+        File f1 = new File("ClassDocumentation/test7/doc/eu.rssw.pct.TestClass.xml");
+        assertTrue(f1.exists());
+        File f2 = new File("ClassDocumentation/test7/html/eu.rssw.pct.TestClass.html");
+        assertTrue(f2.exists());
+    }
+
 }
