@@ -1265,6 +1265,12 @@ public class PCTCompileExtTest extends BuildFileTestNg {
         assertTrue(f3.exists());
         File f4 = new File(BASEDIR + "test80/build2/prgs/Internal.r");
         assertTrue(f4.exists());
+
+        executeTarget("test3");
+        File f5 = new File(BASEDIR + "test80/build3/rssw/Class1.r");
+        assertTrue(f5.exists());
+        File f6 = new File(BASEDIR + "test80/build3/prgs/Internal.r");
+        assertTrue(f6.exists());
     }
 
     @Test(groups = {"v10"})

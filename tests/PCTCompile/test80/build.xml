@@ -29,4 +29,13 @@
     </PCTCompile>
   </target>
 
+  <target name="test3">
+    <mkdir dir="build3" />
+    <PCTCompile graphicalMode="false" destDir="build3" dlcHome="${DLC}" requireFullKeywords="true" requireFieldQualifiers="true">
+      <fileset dir="src" includes="**/*.cls" />
+      <propath location="src" />
+      <DBConnection dbDir="db" dbName="sp2k2" singleUser="true" />
+    </PCTCompile>
+  </target>
+
 </project>
